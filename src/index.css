@@ -65,3 +65,7 @@
     font-family: 'Playfair Display', serif;
   }
 }
+
+#lovable-badge {
+display: none !important;
+}
