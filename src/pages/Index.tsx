@@ -196,10 +196,10 @@ const Index = () => {
       <section className="bg-secondary py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <blockquote className="font-serif-display text-2xl italic leading-relaxed text-secondary-foreground md:text-3xl">
-            "Eu não vou morrer antes de ser feliz"
+            "É preciso ter força, é preciso ter raça, é preciso ter gana sempre"
           </blockquote>
           <cite className="mt-6 block text-sm font-medium not-italic tracking-wide text-secondary-foreground/70">
-            — Luedji Luna
+            — Emicida, Levanta e Anda
           </cite>
         </div>
       </section>
