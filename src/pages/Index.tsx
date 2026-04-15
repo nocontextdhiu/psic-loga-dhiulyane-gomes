@@ -72,6 +72,7 @@ const steps = [
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <div className="fixed top-0 left-0 w-full z-[9999] bg-green-500 text-white text-center py-2 font-bold pointer-events-none">TESTE LOVABLE FUNCIONANDO</div>
       {/* Nav */}
       <nav className="fixed top-0 z-40 w-full bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
