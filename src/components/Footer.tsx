@@ -5,7 +5,7 @@ const Footer = () => (
   <footer className="border-t border-border py-10">
     <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 text-center text-sm text-muted-foreground md:flex-row md:justify-between md:text-left">
       <div>
-        <span className="font-serif text-lg font-semibold text-foreground">Dhiu</span>
+        <span className="font-serif text-lg font-semibold text-foreground">Psicóloga Dhiulyane Gomes</span>
         <p className="mt-1">{FULL_NAME}</p>
         <p className="mt-0.5">Psicóloga Clínica · Neuropsicóloga · {CRP}</p>
       </div>
@@ -23,7 +23,7 @@ const Footer = () => (
           <GraduationCap className="h-5 w-5" />
         </a>
       </div>
-      <p>© {new Date().getFullYear()} Dhiu Psicologia. Todos os direitos reservados.</p>
+      <p>© {new Date().getFullYear()} Psicóloga Dhiulyane Gomes. Todos os direitos reservados.</p>
     </div>
   </footer>
 );

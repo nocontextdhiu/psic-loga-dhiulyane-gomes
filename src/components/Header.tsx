@@ -21,7 +21,7 @@ const Header = () => {
     <nav className="fixed top-0 z-40 w-full bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link to="/" className="font-serif text-xl font-semibold text-foreground">
-          Dhiu
+          Psicóloga Dhiulyane Gomes
         </Link>
 
         {/* Desktop nav */}
