@@ -2,7 +2,7 @@ import Section from "@/components/ScrollReveal";
 import { FULL_NAME, SOCIAL_LINKS } from "@/lib/constants";
 import { Linkedin, GraduationCap } from "lucide-react";
 import dhiuFoto from "@/assets/dhiu-foto.jpg";
-import aboutConcept from "@/assets/about-concept.jpg";
+import aboutConcept from "@/assets/about-concept.png";
 
 const Sobre = () => (
   <>

@@ -4,7 +4,7 @@ import Section from "@/components/ScrollReveal";
 import LeadModal from "@/components/LeadModal";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/lib/constants";
-import servicesConcept from "@/assets/services-concept.jpg";
+import servicesConcept from "@/assets/services-concept.png";
 
 const services = [
   {

@@ -2,7 +2,7 @@ import { MapPin, MessageCircle, Globe } from "lucide-react";
 import Section from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/lib/constants";
-import comoFuncionaConcept from "@/assets/como-funciona-concept.jpg";
+import comoFuncionaConcept from "@/assets/como-funciona-concept.png";
 
 const steps = [
   { number: "01", title: "Entre em contato", description: "Envie uma mensagem pelo WhatsApp. Sem burocracia, sem formulários longos." },

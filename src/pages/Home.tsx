@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Section from "@/components/ScrollReveal";
 import LeadModal from "@/components/LeadModal";
 import { WHATSAPP_URL, CRP, FULL_NAME } from "@/lib/constants";
-import heroConcept from "@/assets/hero-concept.jpg";
+import heroConcept from "@/assets/hero-concept.png";
 
 const services = [
   {
