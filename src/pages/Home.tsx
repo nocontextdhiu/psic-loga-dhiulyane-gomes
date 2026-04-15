@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, Heart, ClipboardCheck, Brain, Mic, ArrowRight, Globe } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { MessageCircle, Heart, ClipboardCheck, Brain, Mic, ArrowRight, Globe, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import Section from "@/components/ScrollReveal";
 import LeadModal from "@/components/LeadModal";
@@ -30,6 +31,37 @@ const services = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Os atendimentos são online ou presenciais?",
+    answer: "Ofereço a modalidade online, que permite o acompanhamento de qualquer lugar do mundo com a mesma qualidade clínica. Também realizo atendimentos presenciais, que ocorrem atualmente com hora marcada na cidade de Rio Grande, RS."
+  },
+  {
+    question: "Como faço para agendar uma consulta?",
+    answer: "O agendamento é feito de forma simples e direta pelo WhatsApp. Basta me enviar uma mensagem que conversaremos sobre sua demanda para encontrar o melhor horário e modalidade (online ou presencial) para você."
+  },
+  {
+    question: "Quais serviços de psicologia são oferecidos?",
+    answer: "Minha atuação clínica se divide em Psicoterapia Clínica (processo de acompanhamento contínuo), Avaliação Psicológica (processo técnico focado na emissão de laudos para demandas como concursos e cirurgias) e Avaliação Neuropsicológica (investigação ampla das funções cognitivas). Também estruturo palestras e formações."
+  },
+  {
+    question: "Qual a diferença entre Avaliação Psicológica e Neuropsicológica?",
+    answer: "Enquanto a Avaliação Psicológica compreende aspectos abrangentes da personalidade e do estado emocional do sujeito, a Avaliação Neuropsicológica é o recurso padrão ouro focado detalhadamente na anatomia das funções cerebrais e do comportamento (como foco, memória e funções executivas), sendo essencial nas hipóteses diagnósticas de TDAH, Autismo (TEA), perdas de memória e síndromes neurológicas."
+  },
+  {
+    question: "Para quem é direcionado o atendimento clínico?",
+    answer: "O consultório está de portas abertas para qualquer jovem ou adulto que busque autoconhecimento e uma escuta técnica atenta. Contudo, como psicóloga clínica preta, tenho como principal foco o cuidado centrado em pessoas negras e pardas e suas complexidades, oferecendo um espaço terapêutico engajado onde atravessamentos raciais ou culturais são compreendidos com total legitimidade."
+  },
+  {
+    question: "O consultório atende instituições com palestras e formações?",
+    answer: "Sim, atuo oferecendo palestras, treinamentos e rodas de conversa institucionais, presenciais ou remotas, voltadas para o universo corporativo, educacional e ongs. Os temas discutem, dentro de parâmetros da organização, pautas como saúde mental no trabalho, psicologia crítica, relações raciais, e diversidade e inclusão."
+  },
+  {
+    question: "Como contrato uma palestra ou solicito uma roda de conversa?",
+    answer: "Você pode me mandar uma mensagem inicial no WhatsApp fornecendo a apresentação da sua instituição e o tema pretendido."
+  }
+];
+
 const Home = () => (
   <>
     {/* Hero */}
@@ -47,13 +79,20 @@ const Home = () => (
             Existe cuidado que começa quando alguém, enfim, te escuta de verdade.
           </h1>
           <p className="max-w-lg text-lg leading-relaxed text-muted-foreground">
-            Psicoterapia e avaliação neuropsicológica conduzidas com rigor técnico e profundidade emocional. Um espaço seguro para acolher sua história e promover saúde mental. Atendimento online e presencial.
+            Psicoterapia e avaliação psicológica conduzidas com rigor técnico e profundidade emocional. Um espaço clínico seguro para acolher sua história e promover saúde mental. Atendimento online e presencial em Rio Grande, RS, sob agendamento.
           </p>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Globe className="h-4 w-4 text-primary" />
-            <span>Atendimento online para qualquer lugar do mundo</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-muted-foreground font-medium">
+            <div className="flex items-center gap-2">
+              <Globe className="h-4 w-4 text-primary" />
+              <span>Online para qualquer lugar</span>
+            </div>
+            <div className="hidden sm:block h-1 w-1 rounded-full bg-border" />
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-primary" />
+              <span>Presencial em Rio Grande, RS</span>
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4 pt-4">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
                 <MessageCircle className="mr-2 h-5 w-5" /> Agendar consulta
@@ -140,6 +179,31 @@ const Home = () => (
             Se você é uma instituição, escola ou universidade interessada em palestras sobre psicologia, raça, cultura e subjetividade — entre em contato.
           </p>
         </div>
+      </div>
+    </Section>
+
+    {/* FAQ */}
+    <Section className="py-16 md:py-32 bg-card/30">
+      <div className="mx-auto max-w-3xl px-6">
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">Dúvidas Frequentes</h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Como posso te apoiar e como funcionam os atendimentos.
+          </p>
+        </div>
+        
+        <Accordion type="single" collapsible className="w-full">
+          {faqs.map((faq, index) => (
+            <AccordionItem key={index} value={`item-${index}`} className="border-border/40 px-2">
+              <AccordionTrigger className="text-left font-serif text-[1.1rem] font-medium text-foreground hover:text-primary transition-colors py-5 leading-snug">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed text-base pb-6 md:pr-12">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </Section>
 
