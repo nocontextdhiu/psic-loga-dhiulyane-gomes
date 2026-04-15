@@ -49,7 +49,7 @@ const Servicos = () => (
       </div>
     </section>
 
-    <Section className="relative border-y border-border/40 bg-card/40 py-24 md:py-32">
+    <Section className="relative border-y border-border/40 bg-card/40 py-16 md:py-32">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="grid gap-8 sm:grid-cols-2">
           {services.map((service) => (
@@ -71,7 +71,7 @@ const Servicos = () => (
       </div>
     </Section>
 
-    <Section className="bg-card py-24 md:py-32">
+    <Section className="bg-card py-16 md:py-32">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
           Quer saber qual serviço é ideal para você?
@@ -79,14 +79,14 @@ const Servicos = () => (
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
           Me conta o que você precisa e eu te ajudo a encontrar o melhor caminho.
         </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="rounded-full bg-primary px-10 text-primary-foreground hover:bg-primary/90">
+        <div className="mt-10 flex flex-col md:flex-row flex-wrap justify-center gap-4">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
+            <Button size="lg" className="w-full md:w-auto rounded-full bg-primary px-10 text-primary-foreground hover:bg-primary/90">
               Falar pelo WhatsApp
             </Button>
           </a>
           <LeadModal>
-            <Button size="lg" variant="outline" className="rounded-full px-10">
+            <Button size="lg" variant="outline" className="w-full md:w-auto rounded-full px-10">
               Deixar meus dados
             </Button>
           </LeadModal>

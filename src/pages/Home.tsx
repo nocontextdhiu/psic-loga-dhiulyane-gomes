@@ -38,7 +38,7 @@ const Home = () => (
       <div className="pointer-events-none absolute top-[-10%] right-[-5%] -z-10 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-[-10%] left-[-10%] -z-10 h-[400px] w-[400px] rounded-full bg-secondary/10 blur-[100px]" />
       
-      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-6 py-12 md:grid-cols-2 md:items-center">
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-8 px-5 py-8 md:grid-cols-2 md:items-center md:gap-12 md:px-6 md:py-12">
         <div className="space-y-6">
           <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
             Psicóloga Clínica · Neuropsicóloga
@@ -80,7 +80,7 @@ const Home = () => (
     </section>
 
     {/* Seção Poética — estilo editorial/Reinserir */}
-    <section className="relative overflow-hidden bg-secondary py-24 md:py-36">
+    <section className="relative overflow-hidden bg-secondary py-16 md:py-36">
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
       <div className="relative mx-auto max-w-4xl px-6">
         <div className="flex flex-col items-center gap-8">
@@ -97,7 +97,7 @@ const Home = () => (
     </section>
 
     {/* Serviços resumidos */}
-    <Section className="relative border-y border-border/40 bg-card/40 py-24 md:py-32">
+    <Section className="relative border-y border-border/40 bg-card/40 py-16 md:py-32">
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="mb-16 text-center">
           <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">Como posso te ajudar</h2>
@@ -126,7 +126,7 @@ const Home = () => (
     </Section>
 
     {/* Para Quem */}
-    <Section className="bg-card py-24 md:py-32">
+    <Section className="bg-card py-16 md:py-32">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">Para quem é meu trabalho</h2>
         <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
@@ -144,7 +144,7 @@ const Home = () => (
     </Section>
 
     {/* CTA */}
-    <Section className="py-24 md:py-32">
+    <Section className="py-16 md:py-32">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
           Cuidar de si é um ato de coragem e de amor.
@@ -152,14 +152,14 @@ const Home = () => (
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
           Se algo aqui fez sentido para você, me chama. O primeiro passo pode ser uma mensagem.
         </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="rounded-full bg-primary px-10 text-primary-foreground hover:bg-primary/90">
+        <div className="mt-10 flex flex-col md:flex-row flex-wrap justify-center gap-4">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
+            <Button size="lg" className="w-full md:w-auto rounded-full bg-primary px-10 text-primary-foreground hover:bg-primary/90">
               <MessageCircle className="mr-2 h-5 w-5" /> Falar pelo WhatsApp
             </Button>
           </a>
             <LeadModal>
-              <Button size="lg" variant="outline" className="rounded-full px-10">
+              <Button size="lg" variant="outline" className="w-full md:w-auto rounded-full px-10">
                 Prefiro que entrem em contato
               </Button>
             </LeadModal>

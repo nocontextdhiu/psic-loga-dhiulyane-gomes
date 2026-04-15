@@ -26,7 +26,7 @@ const ComoFunciona = () => (
       </div>
     </section>
 
-    <Section className="py-24 md:py-32">
+    <Section className="py-16 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-8 md:grid-cols-3">
           {steps.map((step) => (
@@ -44,7 +44,7 @@ const ComoFunciona = () => (
       </div>
     </Section>
 
-    <Section className="bg-card py-24 md:py-32">
+    <Section className="bg-card py-16 md:py-32">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
           Pronta para começar?
