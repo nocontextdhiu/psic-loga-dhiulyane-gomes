@@ -42,7 +42,7 @@ const Header = () => {
         <div className="flex items-center gap-3">
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
             <Button size="sm" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-              <MessageCircle className="mr-1.5 h-4 w-4" /> WhatsApp
+              <MessageCircle className="mr-1.5 h-4 w-4" /> Falar no WhatsApp
             </Button>
           </a>
           <button

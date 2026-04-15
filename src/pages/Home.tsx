@@ -43,7 +43,7 @@ const Home = () => (
             Existe cuidado que começa quando alguém, enfim, te escuta de verdade.
           </h1>
           <p className="max-w-lg text-lg leading-relaxed text-muted-foreground">
-            Psicologia clínica com profundidade, acolhimento e identidade. Atendimento online para qualquer lugar do mundo e presencial sob agendamento.
+            Psicoterapia e avaliação neuropsicológica conduzidas com rigor técnico e profundidade emocional. Um espaço seguro para acolher sua história e promover saúde mental. Atendimento online e presencial.
           </p>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Globe className="h-4 w-4 text-primary" />
@@ -52,12 +52,12 @@ const Home = () => (
           <div className="flex flex-wrap items-center gap-4">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-                <MessageCircle className="mr-2 h-5 w-5" /> Agende pelo WhatsApp
+                <MessageCircle className="mr-2 h-5 w-5" /> Agendar consulta
               </Button>
             </a>
             <LeadModal>
               <Button size="lg" variant="outline" className="rounded-full">
-                Quero ser contatada
+                Prefiro que entrem em contato
               </Button>
             </LeadModal>
             <span className="text-sm text-muted-foreground">{CRP}</span>
