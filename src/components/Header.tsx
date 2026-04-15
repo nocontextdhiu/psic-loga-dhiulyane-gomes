@@ -25,7 +25,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-6 text-sm font-medium text-muted-foreground lg:flex">
+        <div className="hidden items-center gap-5 text-sm font-medium text-muted-foreground md:flex">
           {navItems.map((item) => (
             <Link
               key={item.path}
