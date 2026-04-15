@@ -4,31 +4,32 @@ import Section from "@/components/ScrollReveal";
 import LeadModal from "@/components/LeadModal";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/lib/constants";
+import servicesConcept from "@/assets/services-concept.jpg";
 
 const services = [
   {
     icon: Heart,
-    title: "Atendimento Clínico",
+    title: "Psicoterapia Clínica",
     description:
-      "Escuta acolhedora e contextualizada, que considera sua história, seus afetos, sua cultura e tudo aquilo que te constitui. Um espaço seguro para elaborar, compreender e cuidar.",
+      "A psicoterapia é um processo de escuta profunda e acolhedora, onde você pode falar sobre o que sente, pensa e vive — sem julgamento. Meu trabalho como psicóloga clínica é contextualizado: considero sua história, seus afetos, sua cor, sua cultura e tudo aquilo que te constitui como pessoa. Trabalho com questões como ansiedade, depressão, autoestima, luto, conflitos relacionais, identidade racial e autoconhecimento. Cada sessão é um espaço seguro para elaborar, compreender e cuidar — no seu tempo, com profundidade e respeito.",
   },
   {
     icon: ClipboardCheck,
     title: "Avaliação Psicológica",
     description:
-      "Avaliação cuidadosa e tecnicamente qualificada para concursos, processos seletivos, autoconhecimento e encaminhamentos profissionais.",
+      "A avaliação psicológica é um processo técnico e criterioso que utiliza entrevistas, testes psicológicos e observação clínica para compreender aspectos da sua personalidade, cognição e estado emocional. É indicada para concursos públicos, processos seletivos, obtenção ou renovação de porte de arma, cirurgia bariátrica, autoconhecimento e encaminhamentos profissionais. Realizo cada avaliação com responsabilidade ética, rigor científico e sensibilidade humana, produzindo laudos e pareceres fundamentados e acessíveis.",
   },
   {
     icon: Brain,
     title: "Avaliação Neuropsicológica",
     description:
-      "Investigação aprofundada de aspectos cognitivos, emocionais e comportamentais, com responsabilidade técnica e escuta sensível.",
+      "A avaliação neuropsicológica investiga de forma aprofundada as funções cognitivas — como memória, atenção, linguagem, raciocínio e funções executivas — além de aspectos emocionais e comportamentais. É indicada para diagnóstico diferencial de transtornos como TDAH, TEA, dislexia, demências, entre outros. Como pós-graduanda em Neuropsicologia, conduzo cada avaliação com rigor técnico, instrumentos validados e uma escuta sensível ao contexto de vida de cada pessoa, gerando relatórios completos e orientações práticas.",
   },
   {
     icon: Mic,
-    title: "Palestras",
+    title: "Palestras e Formações",
     description:
-      "Conversas e formações sobre psicologia, saúde mental, cultura, raça, negritude e subjetividade. Aberta a convites institucionais, acadêmicos e comunitários.",
+      "Ofereço palestras, rodas de conversa e formações sobre temas que atravessam minha prática e minha pesquisa: psicologia, saúde mental, negritude, cultura, racismo, identidade e subjetividade. Estou aberta a convites de instituições, escolas, universidades, empresas e comunidades que queiram ampliar o diálogo sobre cuidado em saúde mental de forma contextualizada e culturalmente sensível. Cada fala é preparada com carinho, profundidade e acessibilidade.",
   },
 ];
 
@@ -42,15 +43,27 @@ const Servicos = () => (
             Cada serviço é pensado com cuidado, responsabilidade técnica e uma escuta que te acolhe de verdade.
           </p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2">
+
+        <div className="mb-16 flex justify-center">
+          <img
+            src={servicesConcept}
+            alt="Caderno aberto com anotações, fotografia conceitual"
+            className="w-full max-w-2xl rounded-2xl object-cover max-h-80"
+            loading="lazy"
+            width={1200}
+            height={800}
+          />
+        </div>
+
+        <div className="grid gap-8 sm:grid-cols-2">
           {services.map((service) => (
             <Card key={service.title} className="border-border/50 bg-card transition-shadow duration-300 hover:shadow-md">
               <CardContent className="p-8">
                 <service.icon className="mb-4 h-8 w-8 text-primary" strokeWidth={1.5} />
-                <h2 className="mb-3 font-serif text-xl font-semibold text-foreground">{service.title}</h2>
-                <p className="mb-6 leading-relaxed text-muted-foreground">{service.description}</p>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80">
-                  Saiba mais <ArrowRight className="h-4 w-4" />
+                <h2 className="mb-4 font-serif text-xl font-semibold text-foreground">{service.title}</h2>
+                <p className="leading-relaxed text-muted-foreground">{service.description}</p>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80">
+                  Agendar <ArrowRight className="h-4 w-4" />
                 </a>
               </CardContent>
             </Card>

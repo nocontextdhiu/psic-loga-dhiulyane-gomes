@@ -1,7 +1,8 @@
-import { Monitor, MapPin, MessageCircle } from "lucide-react";
+import { Monitor, MapPin, MessageCircle, Globe } from "lucide-react";
 import Section from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/lib/constants";
+import comoFuncionaConcept from "@/assets/como-funciona-concept.jpg";
 
 const steps = [
   { number: "01", title: "Entre em contato", description: "Envie uma mensagem pelo WhatsApp. Sem burocracia, sem formulários longos." },
@@ -16,9 +17,21 @@ const ComoFunciona = () => (
         <div className="mb-16 text-center">
           <h1 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">Como funciona</h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Minha prioridade é o <strong>atendimento online</strong>, para que você tenha acesso ao cuidado de onde estiver. Também realizo atendimentos presenciais, mediante agendamento prévio.
+            Realizo atendimentos <strong>online para qualquer lugar do mundo</strong> e também presenciais, mediante agendamento prévio. O importante é que o cuidado chegue até você.
           </p>
         </div>
+
+        <div className="mb-16 flex justify-center">
+          <img
+            src={comoFuncionaConcept}
+            alt="Espaço acolhedor com livros e plantas"
+            className="w-full max-w-2xl rounded-2xl object-cover max-h-72"
+            loading="lazy"
+            width={1200}
+            height={800}
+          />
+        </div>
+
         <div className="grid gap-8 md:grid-cols-3">
           {steps.map((step) => (
             <div key={step.number} className="text-center md:text-left">
@@ -29,7 +42,7 @@ const ComoFunciona = () => (
           ))}
         </div>
         <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-          <span className="flex items-center gap-2"><Monitor className="h-5 w-5 text-primary" /> Online — de qualquer lugar</span>
+          <span className="flex items-center gap-2"><Globe className="h-5 w-5 text-primary" /> Online — para qualquer lugar do mundo</span>
           <span className="flex items-center gap-2"><MapPin className="h-5 w-5 text-primary" /> Presencial — sob agendamento</span>
         </div>
       </div>
