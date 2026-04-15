@@ -32,7 +32,6 @@ const services = [
 
 const Home = () => (
   <>
-    <div className="fixed top-0 left-0 w-full z-[9999] bg-red-500 text-white text-center py-2 font-bold pointer-events-none">TESTE HOME REAL</div>
     {/* Hero */}
     <section className="flex min-h-[calc(100vh-72px)] items-center">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-center">

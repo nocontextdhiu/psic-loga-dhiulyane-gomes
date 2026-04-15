@@ -72,7 +72,6 @@ const steps = [
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <div className="fixed top-0 left-0 w-full z-[9999] bg-green-500 text-white text-center py-2 font-bold pointer-events-none">TESTE LOVABLE FUNCIONANDO</div>
       {/* Nav */}
       <nav className="fixed top-0 z-40 w-full bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -99,7 +98,7 @@ const Index = () => {
               Psicóloga Clínica · Neuropsicóloga
             </p>
             <h1 className="font-serif text-4xl font-semibold leading-tight text-foreground md:text-5xl lg:text-6xl">
-              Existe cuidado que começa quando alguém, enfim, te escuta de verdade. TESTE LOVABLE
+              Existe cuidado que começa quando alguém, enfim, te escuta de verdade.
             </h1>
             <p className="max-w-lg text-lg leading-relaxed text-muted-foreground">
               Psicologia clínica com profundidade, acolhimento e identidade. Atendimento online e presencial.
