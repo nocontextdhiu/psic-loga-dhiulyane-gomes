@@ -98,7 +98,7 @@ const Index = () => {
               Psicóloga Clínica · Neuropsicóloga
             </p>
             <h1 className="font-serif text-4xl font-semibold leading-tight text-foreground md:text-5xl lg:text-6xl">
-              Existe cuidado que começa quando alguém, enfim, te escuta de verdade.
+              Existe cuidado que começa quando alguém, enfim, te escuta de verdade. TESTE LOVABLE
             </h1>
             <p className="max-w-lg text-lg leading-relaxed text-muted-foreground">
               Psicologia clínica com profundidade, acolhimento e identidade. Atendimento online e presencial.
