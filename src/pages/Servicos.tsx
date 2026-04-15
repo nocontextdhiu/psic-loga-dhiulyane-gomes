@@ -23,7 +23,7 @@ const services = [
     icon: Brain,
     title: "Avaliação Neuropsicológica",
     description:
-      "A avaliação neuropsicológica investiga de forma aprofundada as funções cognitivas — como memória, atenção, linguagem, raciocínio e funções executivas — além de aspectos emocionais e comportamentais. É indicada para diagnóstico diferencial de transtornos como TDAH, TEA, dislexia, demências, entre outros. Como pós-graduanda em Neuropsicologia, conduzo cada avaliação com rigor técnico, instrumentos validados e uma escuta sensível ao contexto de vida de cada pessoa, gerando relatórios completos e orientações práticas.",
+      "A avaliação neuropsicológica investiga de forma aprofundada as funções cognitivas — como memória, atenção, linguagem, raciocínio e funções executivas — além de aspectos emocionais e comportamentais. É indicada para diagnóstico diferencial de transtornos como TDAH, TEA, dislexia, demências, entre outros. Como pós-graduada em Neuropsicologia, conduzo cada avaliação com rigor técnico, instrumentos validados e uma escuta sensível ao contexto de vida de cada pessoa, gerando relatórios completos e orientações práticas.",
   },
   {
     icon: Mic,
@@ -35,26 +35,22 @@ const services = [
 
 const Servicos = () => (
   <>
+    {/* Hero com imagem de fundo */}
+    <section
+      className="relative flex items-center justify-center py-32 md:py-44"
+      style={{ backgroundImage: `url(${servicesConcept})`, backgroundSize: "cover", backgroundPosition: "center" }}
+    >
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+        <h1 className="font-serif text-3xl font-semibold text-foreground md:text-5xl">Como posso te ajudar</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+          Cada serviço é pensado com cuidado, responsabilidade técnica e uma escuta que te acolhe de verdade.
+        </p>
+      </div>
+    </section>
+
     <Section className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-16 text-center">
-          <h1 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">Como posso te ajudar</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Cada serviço é pensado com cuidado, responsabilidade técnica e uma escuta que te acolhe de verdade.
-          </p>
-        </div>
-
-        <div className="mb-16 flex justify-center">
-          <img
-            src={servicesConcept}
-            alt="Caderno aberto com anotações, fotografia conceitual"
-            className="w-full max-w-2xl rounded-2xl object-cover max-h-80"
-            loading="lazy"
-            width={1200}
-            height={800}
-          />
-        </div>
-
         <div className="grid gap-8 sm:grid-cols-2">
           {services.map((service) => (
             <Card key={service.title} className="border-border/50 bg-card transition-shadow duration-300 hover:shadow-md">

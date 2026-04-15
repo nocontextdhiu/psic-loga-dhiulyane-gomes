@@ -46,7 +46,7 @@ const Header = () => {
             </Button>
           </a>
           <button
-            className="lg:hidden text-foreground"
+            className="md:hidden text-foreground"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
           >
@@ -57,7 +57,7 @@ const Header = () => {
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-border/50 bg-background/95 backdrop-blur-md">
+        <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-md">
           <div className="flex flex-col gap-1 px-6 py-4">
             {navItems.map((item) => (
               <Link
