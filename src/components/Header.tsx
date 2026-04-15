@@ -25,7 +25,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-6 text-sm font-medium text-muted-foreground lg:flex">
+        <div className="hidden items-center gap-5 text-sm font-medium text-muted-foreground md:flex">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -46,7 +46,7 @@ const Header = () => {
             </Button>
           </a>
           <button
-            className="lg:hidden text-foreground"
+            className="md:hidden text-foreground"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
           >
@@ -57,7 +57,7 @@ const Header = () => {
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-border/50 bg-background/95 backdrop-blur-md">
+        <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-md">
           <div className="flex flex-col gap-1 px-6 py-4">
             {navItems.map((item) => (
               <Link

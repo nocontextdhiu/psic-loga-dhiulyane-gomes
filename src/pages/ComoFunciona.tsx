@@ -1,4 +1,4 @@
-import { Monitor, MapPin, MessageCircle, Globe } from "lucide-react";
+import { MapPin, MessageCircle, Globe } from "lucide-react";
 import Section from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/lib/constants";
@@ -12,26 +12,22 @@ const steps = [
 
 const ComoFunciona = () => (
   <>
+    {/* Hero com imagem de fundo */}
+    <section
+      className="relative flex items-center justify-center py-32 md:py-44"
+      style={{ backgroundImage: `url(${comoFuncionaConcept})`, backgroundSize: "cover", backgroundPosition: "center" }}
+    >
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+        <h1 className="font-serif text-3xl font-semibold text-foreground md:text-5xl">Como funciona</h1>
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          Realizo atendimentos <strong>online para qualquer lugar do mundo</strong> e também presenciais, mediante agendamento prévio. O importante é que o cuidado chegue até você.
+        </p>
+      </div>
+    </section>
+
     <Section className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-16 text-center">
-          <h1 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">Como funciona</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Realizo atendimentos <strong>online para qualquer lugar do mundo</strong> e também presenciais, mediante agendamento prévio. O importante é que o cuidado chegue até você.
-          </p>
-        </div>
-
-        <div className="mb-16 flex justify-center">
-          <img
-            src={comoFuncionaConcept}
-            alt="Espaço acolhedor com livros e plantas"
-            className="w-full max-w-2xl rounded-2xl object-cover max-h-72"
-            loading="lazy"
-            width={1200}
-            height={800}
-          />
-        </div>
-
         <div className="grid gap-8 md:grid-cols-3">
           {steps.map((step) => (
             <div key={step.number} className="text-center md:text-left">

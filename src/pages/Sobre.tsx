@@ -6,6 +6,20 @@ import aboutConcept from "@/assets/about-concept.jpg";
 
 const Sobre = () => (
   <>
+    {/* Hero com imagem de fundo */}
+    <section
+      className="relative flex items-center justify-center py-32 md:py-44"
+      style={{ backgroundImage: `url(${aboutConcept})`, backgroundSize: "cover", backgroundPosition: "center" }}
+    >
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+        <h1 className="font-serif text-3xl font-semibold text-foreground md:text-5xl">Quem sou eu</h1>
+        <p className="mx-auto mt-4 max-w-xl text-muted-foreground text-lg">
+          Psicóloga clínica, neuropsicóloga e pesquisadora — comprometida com um cuidado que faz sentido.
+        </p>
+      </div>
+    </section>
+
     <Section className="py-24 md:py-32">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-center">
         <div className="flex justify-center">
@@ -19,15 +33,12 @@ const Sobre = () => (
           />
         </div>
         <div className="space-y-6">
-          <h1 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
-            Quem sou eu
-          </h1>
           <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
             {FULL_NAME}
           </p>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              Mais conhecida como Dhiu, sou psicóloga clínica e mestranda em Psicologia na Universidade Federal do Rio Grande (FURG), pós-graduanda em Neuropsicologia e em Avaliação Psicológica e Psicodiagnóstico, além de aspirante a cientista e pesquisadora.
+              Mais conhecida como Dhiu, sou psicóloga clínica e mestranda em Psicologia na Universidade Federal do Rio Grande (FURG), pós-graduada em Neuropsicologia e pós-graduanda em Avaliação Psicológica e Psicodiagnóstico, além de aspirante a cientista e pesquisadora.
             </p>
             <p>
               Filha e neta de professoras negras, aprendi cedo a valorizar o cuidado, o afeto e a empatia nas relações humanas, especialmente com populações vulneráveis. É a partir daí que surge meu sonho de contribuir significativamente com a psicologia brasileira, principalmente no que diz respeito à produção científica sobre questões de raça e saúde mental.
@@ -80,9 +91,9 @@ const Sobre = () => (
               </p>
             </div>
             <div className="border-l-2 border-primary/30 pl-6">
-              <h3 className="font-serif text-lg font-semibold text-foreground">Neuropsicologia</h3>
+              <h3 className="font-serif text-lg font-semibold text-foreground">Pós-graduação em Neuropsicologia</h3>
               <p className="mt-2 text-muted-foreground leading-relaxed">
-                Pós-graduanda em Neuropsicologia, com foco em avaliação neuropsicológica que combina rigor técnico, sensibilidade clínica e atenção às particularidades de cada pessoa avaliada.
+                Pós-graduada em Neuropsicologia, com foco em avaliação neuropsicológica que combina rigor técnico, sensibilidade clínica e atenção às particularidades de cada pessoa avaliada.
               </p>
             </div>
           </div>
@@ -96,13 +107,13 @@ const Sobre = () => (
             <div className="border-l-2 border-primary/30 pl-6">
               <h3 className="font-serif text-lg font-semibold text-foreground">Pesquisa e Divulgação Científica</h3>
               <p className="mt-2 text-muted-foreground leading-relaxed">
-                Apaixonada pela ciência, tenho experiência como bolsista de iniciação científica e atuei como divulgadora científica durante 3 anos, além de experiências paralelas em pesquisa.
+                Apaixonada pela ciência, tenho experiência como bolsista de iniciação científica durante 1 ano e atuei como divulgadora científica durante 3 anos, além de experiências paralelas em pesquisa acadêmica.
               </p>
             </div>
             <div className="border-l-2 border-primary/30 pl-6">
-              <h3 className="font-serif text-lg font-semibold text-foreground">Redação Cultural e Acadêmica</h3>
+              <h3 className="font-serif text-lg font-semibold text-foreground">Experiência em Recursos Humanos</h3>
               <p className="mt-2 text-muted-foreground leading-relaxed">
-                Experiência em escrita com foco na comunidade negra, articulando cultura, raça e subjetividade. Criação de conteúdo voltada especialmente para e sobre a comunidade negra, com destaque para a música.
+                Aproximadamente 2 anos de experiência na área de Recursos Humanos, estagiando em duas grandes empresas: Terminal Marítimo Luiz Fogliatto (TERMASA) e Supermercados Guanabara.
               </p>
             </div>
           </div>
