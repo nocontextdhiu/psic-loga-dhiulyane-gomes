@@ -33,8 +33,12 @@ const services = [
 const Home = () => (
   <>
     {/* Hero */}
-    <section className="flex min-h-[calc(100vh-72px)] items-center">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-center">
+    <section className="relative flex min-h-[calc(100vh-72px)] overflow-hidden items-center">
+      {/* Background soft ambient glows */}
+      <div className="pointer-events-none absolute top-[-10%] right-[-5%] -z-10 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-[-10%] left-[-10%] -z-10 h-[400px] w-[400px] rounded-full bg-secondary/10 blur-[100px]" />
+      
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-6 py-12 md:grid-cols-2 md:items-center">
         <div className="space-y-6">
           <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
             Psicóloga Clínica · Neuropsicóloga
@@ -93,8 +97,8 @@ const Home = () => (
     </section>
 
     {/* Serviços resumidos */}
-    <Section className="py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
+    <Section className="relative border-y border-border/40 bg-card/40 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="mb-16 text-center">
           <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">Como posso te ajudar</h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -103,12 +107,15 @@ const Home = () => (
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
           {services.map((service) => (
-            <Card key={service.title} className="border-border/50 bg-card transition-shadow duration-300 hover:shadow-md">
-              <CardContent className="p-8">
-                <service.icon className="mb-4 h-8 w-8 text-primary" strokeWidth={1.5} />
-                <h3 className="mb-3 font-serif text-xl font-semibold text-foreground">{service.title}</h3>
-                <p className="mb-6 leading-relaxed text-muted-foreground">{service.description}</p>
-                <Link to="/servicos" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80">
+            <Card key={service.title} className="group relative overflow-hidden border-primary/5 bg-background/60 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5">
+              <CardContent className="p-8 md:p-10">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <service.icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                </div>
+                <h3 className="mb-3 font-serif text-xl font-semibold text-foreground transition-colors group-hover:text-primary">{service.title}</h3>
+                <div className="mb-5 h-px w-10 bg-border transition-all duration-500 group-hover:w-full group-hover:bg-primary/20" />
+                <p className="mb-8 leading-relaxed text-muted-foreground">{service.description}</p>
+                <Link to="/servicos" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:gap-3 hover:text-primary/80">
                   Saiba mais <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -119,10 +126,15 @@ const Home = () => (
     </Section>
 
     {/* Para Quem */}
-    <Section className="bg-card py-24 md:py-32">
-      <div className="mx-auto max-w-3xl px-6 text-center">
+    <Section className="relative bg-card py-24 md:py-32">
+      <div className="pointer-events-none absolute inset-0 opacity-60" style={{ backgroundImage: 'radial-gradient(circle at center, hsl(var(--primary)/0.04) 0%, transparent 60%)' }} />
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+        <span className="mb-4 block text-sm font-semibold uppercase tracking-widest text-primary/70">
+          Proposta de Cuidado
+        </span>
         <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">Para quem é meu trabalho</h2>
-        <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
+        <div className="mx-auto mt-8 h-px w-24 bg-primary/20" />
+        <div className="mt-10 space-y-6 text-lg leading-relaxed text-muted-foreground">
           <p>
             Se você é uma pessoa preta ou parda que busca um espaço de escuta onde se sinta verdadeiramente compreendida. Se você procura autoconhecimento emocional e cultural, cuidado em saúde mental com profundidade e identidade — meu consultório é para você.
           </p>
@@ -138,8 +150,12 @@ const Home = () => (
 
     {/* CTA */}
     <Section className="py-24 md:py-32">
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/10 bg-secondary/5 px-6 py-16 text-center shadow-sm sm:px-12 md:py-24">
+          <div className="pointer-events-none absolute -top-32 -right-32 -z-10 h-80 w-80 rounded-full bg-primary/10 blur-[80px]" />
+          <div className="pointer-events-none absolute -bottom-32 -left-32 -z-10 h-80 w-80 rounded-full bg-secondary/10 blur-[80px]" />
+          
+          <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
           Cuidar de si é um ato de coragem e de amor.
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
@@ -151,11 +167,12 @@ const Home = () => (
               <MessageCircle className="mr-2 h-5 w-5" /> Falar pelo WhatsApp
             </Button>
           </a>
-          <LeadModal>
-            <Button size="lg" variant="outline" className="rounded-full px-10">
-              Deixar meus dados
-            </Button>
-          </LeadModal>
+            <LeadModal>
+              <Button size="lg" variant="outline" className="rounded-full px-10 border-primary/20 hover:bg-primary/5">
+                Prefiro que entrem em contato
+              </Button>
+            </LeadModal>
+          </div>
         </div>
       </div>
     </Section>
