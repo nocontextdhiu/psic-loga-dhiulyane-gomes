@@ -40,7 +40,7 @@ const Servicos = () => (
       className="relative flex items-center justify-center py-32 md:py-44"
       style={{ backgroundImage: `url(${servicesConcept})`, backgroundSize: "cover", backgroundPosition: "center" }}
     >
-      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-background/80" />
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <h1 className="font-serif text-3xl font-semibold text-foreground md:text-5xl">Como posso te ajudar</h1>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -49,16 +49,19 @@ const Servicos = () => (
       </div>
     </section>
 
-    <Section className="py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
+    <Section className="relative border-y border-border/40 bg-card/40 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="grid gap-8 sm:grid-cols-2">
           {services.map((service) => (
-            <Card key={service.title} className="border-border/50 bg-card transition-shadow duration-300 hover:shadow-md">
-              <CardContent className="p-8">
-                <service.icon className="mb-4 h-8 w-8 text-primary" strokeWidth={1.5} />
-                <h2 className="mb-4 font-serif text-xl font-semibold text-foreground">{service.title}</h2>
-                <p className="leading-relaxed text-muted-foreground">{service.description}</p>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80">
+            <Card key={service.title} className="group relative overflow-hidden border-primary/5 bg-background/60 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5">
+              <CardContent className="p-8 md:p-10">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <service.icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                </div>
+                <h2 className="mb-3 font-serif text-xl font-semibold text-foreground transition-colors group-hover:text-primary">{service.title}</h2>
+                <div className="mb-5 h-px w-10 bg-border transition-all duration-500 group-hover:w-full group-hover:bg-primary/20" />
+                <p className="mb-8 leading-relaxed text-muted-foreground">{service.description}</p>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:gap-3 hover:text-primary/80">
                   Agendar <ArrowRight className="h-4 w-4" />
                 </a>
               </CardContent>

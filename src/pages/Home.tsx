@@ -126,15 +126,10 @@ const Home = () => (
     </Section>
 
     {/* Para Quem */}
-    <Section className="relative bg-card py-24 md:py-32">
-      <div className="pointer-events-none absolute inset-0 opacity-60" style={{ backgroundImage: 'radial-gradient(circle at center, hsl(var(--primary)/0.04) 0%, transparent 60%)' }} />
-      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-        <span className="mb-4 block text-sm font-semibold uppercase tracking-widest text-primary/70">
-          Proposta de Cuidado
-        </span>
+    <Section className="bg-card py-24 md:py-32">
+      <div className="mx-auto max-w-3xl px-6 text-center">
         <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">Para quem é meu trabalho</h2>
-        <div className="mx-auto mt-8 h-px w-24 bg-primary/20" />
-        <div className="mt-10 space-y-6 text-lg leading-relaxed text-muted-foreground">
+        <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
           <p>
             Se você é uma pessoa preta ou parda que busca um espaço de escuta onde se sinta verdadeiramente compreendida. Se você procura autoconhecimento emocional e cultural, cuidado em saúde mental com profundidade e identidade — meu consultório é para você.
           </p>
@@ -150,12 +145,8 @@ const Home = () => (
 
     {/* CTA */}
     <Section className="py-24 md:py-32">
-      <div className="mx-auto max-w-4xl px-6">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/10 bg-secondary/5 px-6 py-16 text-center shadow-sm sm:px-12 md:py-24">
-          <div className="pointer-events-none absolute -top-32 -right-32 -z-10 h-80 w-80 rounded-full bg-primary/10 blur-[80px]" />
-          <div className="pointer-events-none absolute -bottom-32 -left-32 -z-10 h-80 w-80 rounded-full bg-secondary/10 blur-[80px]" />
-          
-          <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
+      <div className="mx-auto max-w-3xl px-6 text-center">
+        <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
           Cuidar de si é um ato de coragem e de amor.
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
@@ -168,12 +159,11 @@ const Home = () => (
             </Button>
           </a>
             <LeadModal>
-              <Button size="lg" variant="outline" className="rounded-full px-10 border-primary/20 hover:bg-primary/5">
+              <Button size="lg" variant="outline" className="rounded-full px-10">
                 Prefiro que entrem em contato
               </Button>
             </LeadModal>
           </div>
-        </div>
       </div>
     </Section>
   </>

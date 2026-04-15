@@ -11,7 +11,7 @@ const Sobre = () => (
       className="relative flex items-center justify-center py-32 md:py-44"
       style={{ backgroundImage: `url(${aboutConcept})`, backgroundSize: "cover", backgroundPosition: "center" }}
     >
-      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-background/80" />
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <h1 className="font-serif text-3xl font-semibold text-foreground md:text-5xl">Quem sou eu</h1>
         <p className="mx-auto mt-4 max-w-xl text-muted-foreground text-lg">
