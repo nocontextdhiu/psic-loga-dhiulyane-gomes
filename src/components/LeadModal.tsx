@@ -117,7 +117,8 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
             <Input id="lead-email" name="email" type="email" placeholder="seu@email.com" required />
           </div>
           <div className="space-y-2">
-            <Label>Serviço de interesse</Label>
+            <Label htmlFor="lead-service">Serviço de interesse</Label>
+            <input type="hidden" name="service" id="lead-service" value={service} />
             <Select value={service} onValueChange={setService}>
               <SelectTrigger>
                 <SelectValue placeholder="Selecione um serviço..." />
