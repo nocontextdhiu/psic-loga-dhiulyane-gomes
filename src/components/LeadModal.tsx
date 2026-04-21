@@ -19,14 +19,24 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [service, setService] = useState("");
+  const [debugLogs, setDebugLogs] = useState<string[]>([]);
   
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
+  const addLog = (msg: string) => {
+    console.log(msg);
+    setDebugLogs(prev => [...prev, msg]);
+  };
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setDebugLogs([]); // Limpa logs anteriores
+    addLog("SUBMIT DISPAROU");
+    addLog(`SERVICE: "${service}"`);
 
     if (!service) {
+      addLog("VALIDAÇÃO BLOQUEOU: service vazio");
       toast({ 
         title: "Selecione um serviço", 
         description: "Por favor, selecione qual serviço você tem interesse.",
@@ -41,6 +51,7 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
     formData.set("service", service);
 
     try {
+      addLog("FETCH VAI RODAR AGORA");
       const response = await fetch("https://formspree.io/f/mlgaprdl", {
         method: "POST",
         body: formData,
@@ -49,7 +60,10 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
         },
       });
 
+      addLog(`HTTP STATUS: ${response.status}`);
+
       if (response.ok) {
+        addLog("MOSTRANDO SUCESSO");
         toast({
           title: "Mensagem enviada com sucesso!",
           description: "Entrarei em contato assim que possível. 💛",
@@ -59,6 +73,7 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
         setOpen(false);
       } else {
         const errorData = await response.json().catch(() => null);
+        addLog(`ERRO DE API (Formspree devolveu dados): ${JSON.stringify(errorData)}`);
         let errorMsg = "Não foi possível enviar sua mensagem.";
         if (errorData?.errors?.length > 0) {
           errorMsg = errorData.errors.map((err: any) => err.message).join(", ");
@@ -66,6 +81,8 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
         toast({ title: "Erro no servidor", description: errorMsg, variant: "destructive" });
       }
     } catch (error) {
+      addLog(`ERRO CRITICO (Falha no Fetch): ${String(error)}`);
+      console.error(error);
       toast({ 
         title: "Falha na submissão", 
         description: "Verifique sua conexão com a internet e tente novamente.", 
@@ -124,6 +141,16 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
           <Button type="submit" disabled={isSubmitting} className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
             {isSubmitting ? "Enviando..." : "Enviar mensagem"}
           </Button>
+
+          {/* Painel visual temporário de debug */}
+          {debugLogs.length > 0 && (
+            <div className="mt-4 p-3 bg-zinc-950 text-emerald-400 text-xs font-mono rounded-md border border-zinc-800 space-y-1 max-h-32 overflow-y-auto">
+              <strong className="text-zinc-400 block mb-2">DEBUG LOGS:</strong>
+              {debugLogs.map((log, i) => (
+                <div key={i}>&gt; {log}</div>
+              ))}
+            </div>
+          )}
         </form>
       </DialogContent>
     </Dialog>
