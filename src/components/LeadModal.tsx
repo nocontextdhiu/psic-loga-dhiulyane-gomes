@@ -42,6 +42,17 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
     }
   }, [state.succeeded, toast]);
 
+  const handleCustomSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // Interceptar a submissão para validar o select sem usar HTML5 nativo em inputs ocultos
+    if (!service) {
+      e.preventDefault();
+      toast({ title: "Ops!", description: "Por favor, selecione um serviço de interesse para continuar." });
+      return;
+    }
+    // Repassa o evento de fato para o envio da biblioteca Formspree
+    handleSubmit(e);
+  };
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
@@ -52,7 +63,13 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
             Deixe seus dados e eu entro em contato para agendarmos.
           </p>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        <form 
+          // Formspree endpoint is configured here
+          action="https://formspree.io/f/mlgaprdl" 
+          method="POST"
+          onSubmit={handleCustomSubmit} 
+          className="space-y-4 mt-4"
+        >
           <div className="space-y-2">
             <Label htmlFor="lead-name">Nome</Label>
             <Input id="lead-name" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Seu nome" required />
@@ -70,7 +87,9 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
           </div>
           <div className="space-y-2">
             <Label>Serviço de interesse</Label>
-            <Select name="service" value={service} onValueChange={setService} required>
+            {/* hidden input guarantees the Radix Select passes real data into FormData to Formspree */}
+            <input type="hidden" name="service" value={service} />
+            <Select value={service} onValueChange={setService}>
               <SelectTrigger>
                 <SelectValue placeholder="Selecione um serviço" />
               </SelectTrigger>
