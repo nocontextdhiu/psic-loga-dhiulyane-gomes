@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { useForm, ValidationError } from '@formspree/react';
 
 const serviceOptions = [
   { value: "psicoterapia", label: "Psicoterapia Clínica" },
@@ -23,34 +22,68 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
   const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  
-  const [state, handleSubmit] = useForm("mlgaprdl");
 
-  useEffect(() => {
-    if (state.succeeded) {
-      toast({
-        title: "Mensagem enviada!",
-        description: "Em breve entrarei em contato com você. 💛",
-      });
-      setName("");
-      setEmail("");
-      setPhone("");
-      setService("");
-      setMessage("");
-      setOpen(false);
-    }
-  }, [state.succeeded, toast]);
+  const handleCustomSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  const handleCustomSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    // Interceptar a submissão para validar o select sem usar HTML5 nativo em inputs ocultos
+    // Validação rígida no lado do cliente
     if (!service) {
-      e.preventDefault();
-      toast({ title: "Ops!", description: "Por favor, selecione um serviço de interesse para continuar." });
+      toast({ 
+        title: "Campo obrigatório pendente", 
+        description: "Por favor, selecione um serviço de interesse para continuar.",
+        variant: "destructive"
+      });
       return;
     }
-    // Repassa o evento de fato para o envio da biblioteca Formspree
-    handleSubmit(e);
+
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      
+      // Envio ativo garantido via Fetch para aparecer abertamente na Network tag do navegador
+      const response = await fetch("https://formspree.io/f/mlgaprdl", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Mensagem enviada!",
+          description: "Em breve entrarei em contato com você. 💛",
+        });
+        setName("");
+        setEmail("");
+        setPhone("");
+        setService("");
+        setMessage("");
+        setOpen(false);
+      } else {
+        const data = await response.json();
+        let errorMsg = "Aconteceu um problema. Tente novamente mais tarde.";
+        if (data.errors && data.errors.length > 0) {
+          errorMsg = data.errors.map((err: any) => err.message).join(", ");
+        }
+        toast({
+          title: "Erro ao enviar",
+          description: errorMsg,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Erro de conexão",
+        description: "Não foi possível conectar ao servidor. Verifique sua internet.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -64,7 +97,6 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
           </p>
         </DialogHeader>
         <form 
-          // Formspree endpoint is configured here
           action="https://formspree.io/f/mlgaprdl" 
           method="POST"
           onSubmit={handleCustomSubmit} 
@@ -73,21 +105,18 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
           <div className="space-y-2">
             <Label htmlFor="lead-name">Nome</Label>
             <Input id="lead-name" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Seu nome" required />
-            <ValidationError prefix="Nome" field="name" errors={state.errors} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="lead-phone">Telefone / WhatsApp</Label>
             <Input id="lead-phone" name="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="(00) 00000-0000" required />
-            <ValidationError prefix="Telefone" field="phone" errors={state.errors} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="lead-email">E-mail</Label>
             <Input id="lead-email" name="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="seu@email.com" required />
-            <ValidationError prefix="E-mail" field="email" errors={state.errors} />
           </div>
           <div className="space-y-2">
             <Label>Serviço de interesse</Label>
-            {/* hidden input guarantees the Radix Select passes real data into FormData to Formspree */}
+            {/* O input escondido garante a passagem do field mesmo que o dropdown mude o formato nativo */}
             <input type="hidden" name="service" value={service} />
             <Select value={service} onValueChange={setService}>
               <SelectTrigger>
@@ -99,7 +128,6 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
                 ))}
               </SelectContent>
             </Select>
-            <ValidationError prefix="Serviço" field="service" errors={state.errors} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="lead-message">Mensagem</Label>
@@ -111,10 +139,9 @@ const LeadModal = ({ children }: { children: React.ReactNode }) => {
               placeholder="Conte um pouco sobre o que você busca..."
               rows={4}
             />
-            <ValidationError prefix="Mensagem" field="message" errors={state.errors} />
           </div>
-          <Button type="submit" disabled={state.submitting} className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-            {state.submitting ? "Enviando..." : "Enviar"}
+          <Button type="submit" disabled={isSubmitting} className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+            {isSubmitting ? "Enviando..." : "Enviar"}
           </Button>
         </form>
       </DialogContent>
