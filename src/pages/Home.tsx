@@ -34,31 +34,53 @@ const services = [
 const faqs = [
   {
     question: "Os atendimentos são online ou presenciais?",
-    answer: "Ofereço a modalidade online, que permite o acompanhamento de qualquer lugar do mundo com a mesma qualidade clínica. Também realizo atendimentos presenciais, que ocorrem atualmente com hora marcada na cidade de Rio Grande, RS."
+    answer: <>Os atendimentos podem acontecer de forma <strong>online</strong> ou <strong>presencial</strong>, conforme a modalidade mais adequada para cada caso e a disponibilidade de agenda.</>
   },
   {
-    question: "Como faço para agendar uma consulta?",
-    answer: "O agendamento é feito de forma simples e direta pelo WhatsApp. Basta me enviar uma mensagem que conversaremos sobre sua demanda para encontrar o melhor horário e modalidade (online ou presencial) para você."
+    question: "Onde acontecem os atendimentos presenciais?",
+    answer: <>Os atendimentos presenciais acontecem em <strong>Rio Grande, RS</strong>, mediante agendamento prévio.</>
   },
   {
-    question: "Quais serviços de psicologia são oferecidos?",
-    answer: "Minha atuação clínica se divide em Psicoterapia Clínica (processo de acompanhamento contínuo), Avaliação Psicológica (processo técnico focado na emissão de laudos para demandas como concursos e cirurgias) e Avaliação Neuropsicológica (investigação ampla das funções cognitivas). Também estruturo palestras e formações."
+    question: "Como funciona o agendamento?",
+    answer: <>O primeiro contato é feito pelo <strong>WhatsApp</strong>, onde também posso esclarecer pequenas dúvidas iniciais. A partir desse contato, realizamos o agendamento do <strong>acolhimento</strong>, que é a sessão inicial. Nesse primeiro encontro, conversamos sobre a demanda, alinhamos aspectos importantes do processo e apresento o <strong>contrato terapêutico</strong>. A partir daí, damos início ao acompanhamento.</>
   },
   {
-    question: "Qual a diferença entre Avaliação Psicológica e Neuropsicológica?",
-    answer: "Enquanto a Avaliação Psicológica compreende aspectos abrangentes da personalidade e do estado emocional do sujeito, a Avaliação Neuropsicológica é o recurso padrão ouro focado detalhadamente na anatomia das funções cerebrais e do comportamento (como foco, memória e funções executivas), sendo essencial nas hipóteses diagnósticas de TDAH, Autismo (TEA), perdas de memória e síndromes neurológicas."
+    question: "Quais serviços você oferece?",
+    answer: <>Atuo com <strong>psicoterapia</strong>, <strong>avaliação psicológica</strong>, <strong>avaliação neuropsicológica</strong> e também com <strong>palestras e atividades formativas</strong>, conforme a proposta e o contexto de cada demanda.</>
   },
   {
-    question: "Para quem é direcionado o atendimento clínico?",
-    answer: "O consultório está de portas abertas para qualquer jovem ou adulto que busque autoconhecimento e uma escuta técnica atenta. Contudo, como psicóloga clínica preta, tenho como principal foco o cuidado centrado em pessoas negras e pardas e suas complexidades, oferecendo um espaço terapêutico engajado onde atravessamentos raciais ou culturais são compreendidos com total legitimidade."
+    question: "Qual a diferença entre psicoterapia, avaliação psicológica e avaliação neuropsicológica?",
+    answer: (
+      <div className="space-y-4">
+        <p>A <strong>psicoterapia</strong> é um processo de acompanhamento clínico voltado à escuta, ao cuidado com o sofrimento psíquico e à elaboração de questões emocionais, relacionais e subjetivas.</p>
+        <p>A <strong>avaliação psicológica</strong> é um processo técnico e estruturado que busca compreender aspectos emocionais, comportamentais, de personalidade e do funcionamento psicológico, de acordo com um objetivo específico. Pode ser indicada, por exemplo, em contextos <strong>clínicos</strong>, <strong>cirúrgicos</strong>, <strong>jurídicos</strong>, <strong>concursais</strong> ou em situações em que seja necessário um parecer técnico mais aprofundado.</p>
+        <p>A <strong>avaliação neuropsicológica</strong> é um processo mais específico, voltado à investigação das funções cognitivas e de sua relação com aspectos emocionais e comportamentais. Pode ser indicada quando há queixas relacionadas a <strong>memória</strong>, <strong>atenção</strong>, <strong>concentração</strong>, <strong>aprendizagem</strong>, <strong>linguagem</strong>, <strong>planejamento</strong>, <strong>organização</strong>, ou em casos de hipótese diagnóstica como <strong>TDAH</strong>, <strong>TEA</strong>, <strong>altas habilidades/superdotação</strong>, transtornos cognitivos, dificuldades escolares ou alterações no funcionamento cognitivo ao longo da vida.</p>
+      </div>
+    )
   },
   {
-    question: "O consultório atende instituições com palestras e formações?",
-    answer: "Sim, atuo oferecendo palestras, treinamentos e rodas de conversa institucionais, presenciais ou remotas, voltadas para o universo corporativo, educacional e ongs. Os temas discutem, dentro de parâmetros da organização, pautas como saúde mental no trabalho, psicologia crítica, relações raciais, e diversidade e inclusão."
+    question: "Para quem é o atendimento?",
+    answer: "O atendimento é voltado a pessoas que buscam um espaço de escuta qualificada, acolhimento e cuidado psicológico, seja para acompanhamento clínico, seja para processos avaliativos."
   },
   {
-    question: "Como contrato uma palestra ou solicito uma roda de conversa?",
-    answer: "Você pode me mandar uma mensagem inicial no WhatsApp fornecendo a apresentação da sua instituição e o tema pretendido."
+    question: "Como posso entrar em contato?",
+    answer: <>Você pode entrar em contato pelo <strong>WhatsApp</strong> disponível no site. Esse é o canal mais direto para tirar dúvidas, solicitar informações e realizar agendamentos.</>
+  },
+  {
+    question: "Você realiza palestras e formações?",
+    answer: <>Sim. Também realizo <strong>palestras, rodas de conversa e atividades formativas</strong>, construídas de acordo com o público, o contexto e os objetivos da proposta.</>
+  },
+  {
+    question: "As palestras podem ser presenciais ou online?",
+    answer: <>Sim. As palestras e atividades formativas podem ser realizadas de forma <strong>presencial</strong> ou <strong>online</strong>, conforme a necessidade da instituição, grupo ou evento.</>
+  },
+  {
+    question: "Quais temas podem ser abordados nas palestras?",
+    answer: <>Os temas podem ser definidos conforme a proposta da atividade. Entre as possibilidades, estão assuntos relacionados à <strong>saúde mental</strong>, <strong>educação</strong>, <strong>gênero</strong>, <strong>sexualidade</strong>, <strong>diversidade</strong>, <strong>relações étnico-raciais</strong>, <strong>violências</strong>, <strong>processos psicossociais</strong> e outros temas afins à minha atuação.</>
+  },
+  {
+    question: "Como solicitar uma palestra ou atividade formativa?",
+    answer: <>O contato pode ser feito pelo <strong>WhatsApp</strong>. A partir disso, alinhamos o tema, o formato, o público, a data e os demais detalhes necessários para a construção da proposta.</>
   }
 ];
 
