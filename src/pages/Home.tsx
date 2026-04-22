@@ -167,15 +167,15 @@ const Home = () => (
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
           {services.map((service) => (
-            <Card key={service.title} className="group relative overflow-hidden border-primary/5 bg-background/60 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5">
-              <CardContent className="p-8 md:p-10">
+            <Card key={service.title} className="flex flex-col group relative overflow-hidden border-primary/5 bg-background/60 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5">
+              <CardContent className="flex flex-1 flex-col p-8 md:p-10">
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-colors group-hover:bg-primary/20">
                   <service.icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="mb-3 font-serif text-xl font-semibold text-foreground transition-colors group-hover:text-primary">{service.title}</h3>
                 <div className="mb-5 h-px w-10 bg-border transition-all duration-500 group-hover:w-full group-hover:bg-primary/20" />
                 <p className="mb-8 leading-relaxed text-muted-foreground">{service.description}</p>
-                <Link to="/servicos" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:gap-3 hover:text-primary/80">
+                <Link to="/servicos" className="mt-auto inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:gap-3 hover:text-primary/80">
                   Saiba mais <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
