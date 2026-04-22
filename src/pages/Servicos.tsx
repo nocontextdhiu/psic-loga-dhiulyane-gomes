@@ -3,6 +3,7 @@ import { Heart, ClipboardCheck, Brain, Mic, ArrowRight, Mail } from "lucide-reac
 import Section from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL, EMAIL_ADDRESS, getWhatsAppUrl } from "@/lib/constants";
+import { trackEvent } from "@/lib/analytics";
 import servicesConcept from "@/assets/services-concept.png";
 
 const services = [
@@ -60,7 +61,13 @@ const Servicos = () => (
                 <h2 className="mb-3 font-serif text-xl font-semibold text-foreground transition-colors group-hover:text-primary">{service.title}</h2>
                 <div className="mb-5 h-px w-10 bg-border transition-all duration-500 group-hover:w-full group-hover:bg-primary/20" />
                 <p className="mb-8 leading-relaxed text-muted-foreground">{service.description}</p>
-                <a href={getWhatsAppUrl(service.title)} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:gap-3 hover:text-primary/80">
+                <a 
+                  href={getWhatsAppUrl(service.title)} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="mt-auto inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:gap-3 hover:text-primary/80"
+                  onClick={() => trackEvent("click_service_cta", { service_name: service.title, contact_method: "whatsapp", button_location: "service_card" })}
+                >
                   Agendar <ArrowRight className="h-4 w-4" />
                 </a>
               </CardContent>
@@ -79,12 +86,22 @@ const Servicos = () => (
           Me conta o que você precisa e eu te ajudo a encontrar o melhor caminho.
         </p>
         <div className="mt-10 flex flex-col md:flex-row flex-wrap justify-center gap-4">
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
+          <a 
+            href={WHATSAPP_URL} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="w-full md:w-auto"
+            onClick={() => trackEvent("click_whatsapp", { button_location: "services_footer", cta_type: "primary" })}
+          >
             <Button size="lg" className="w-full md:w-auto rounded-full bg-primary px-10 text-primary-foreground hover:bg-primary/90">
               Falar pelo WhatsApp
             </Button>
           </a>
-          <a href={`mailto:${EMAIL_ADDRESS}`} className="w-full md:w-auto">
+          <a 
+            href={`mailto:${EMAIL_ADDRESS}`} 
+            className="w-full md:w-auto"
+            onClick={() => trackEvent("click_email", { button_location: "services_footer", cta_type: "secondary" })}
+          >
             <Button size="lg" variant="outline" className="w-full md:w-auto rounded-full px-10">
               <Mail className="mr-2 h-5 w-5" /> Enviar um E-mail
             </Button>

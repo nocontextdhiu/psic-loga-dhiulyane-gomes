@@ -5,6 +5,7 @@ import { MessageCircle, Heart, ClipboardCheck, Brain, Mic, ArrowRight, Globe, Ma
 import { Link } from "react-router-dom";
 import Section from "@/components/ScrollReveal";
 import { WHATSAPP_URL, CRP, FULL_NAME, EMAIL_ADDRESS } from "@/lib/constants";
+import { trackEvent } from "@/lib/analytics";
 import heroConcept from "@/assets/hero-concept.png";
 
 const services = [
@@ -114,12 +115,20 @@ const Home = () => (
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-4 pt-4">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <a 
+              href={WHATSAPP_URL} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("click_cta_primary", { button_location: "home_hero", contact_method: "whatsapp" })}
+            >
               <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
                 <MessageCircle className="mr-2 h-5 w-5" /> Agendar consulta
               </Button>
             </a>
-            <a href={`mailto:${EMAIL_ADDRESS}`}>
+            <a 
+              href={`mailto:${EMAIL_ADDRESS}`}
+              onClick={() => trackEvent("click_cta_secondary", { button_location: "home_hero", contact_method: "email" })}
+            >
               <Button size="lg" variant="outline" className="rounded-full">
                 <Mail className="mr-2 h-5 w-5" /> Enviar E-mail
               </Button>
@@ -157,7 +166,10 @@ const Home = () => (
     </section>
 
     {/* Serviços resumidos */}
-    <Section className="relative border-y border-border/40 bg-card/40 py-16 md:py-32">
+    <Section 
+      className="relative border-y border-border/40 bg-card/40 py-16 md:py-32"
+      onReveal={() => trackEvent("view_services_section", { page_location: "home" })}
+    >
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="mb-16 text-center">
           <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">Como posso te ajudar</h2>
@@ -175,7 +187,11 @@ const Home = () => (
                 <h3 className="mb-3 font-serif text-xl font-semibold text-foreground transition-colors group-hover:text-primary">{service.title}</h3>
                 <div className="mb-5 h-px w-10 bg-border transition-all duration-500 group-hover:w-full group-hover:bg-primary/20" />
                 <p className="mb-8 leading-relaxed text-muted-foreground">{service.description}</p>
-                <Link to="/servicos" className="mt-auto inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:gap-3 hover:text-primary/80">
+                <Link 
+                  to="/servicos" 
+                  className="mt-auto inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:gap-3 hover:text-primary/80"
+                  onClick={() => trackEvent("click_service_card", { service_name: service.title, page_location: "home" })}
+                >
                   Saiba mais <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>
@@ -216,7 +232,10 @@ const Home = () => (
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`} className="border-border/40 px-2">
-              <AccordionTrigger className="text-left font-serif text-[1.1rem] font-medium text-foreground hover:text-primary transition-colors py-5 leading-snug">
+              <AccordionTrigger 
+                className="text-left font-serif text-[1.1rem] font-medium text-foreground hover:text-primary transition-colors py-5 leading-snug"
+                onClick={() => trackEvent("faq_open", { question: faq.question })}
+              >
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed text-base pb-6 md:pr-12">
@@ -238,12 +257,22 @@ const Home = () => (
           Se algo aqui fez sentido para você, me chama. O primeiro passo pode ser uma mensagem.
         </p>
         <div className="mt-10 flex flex-col md:flex-row flex-wrap justify-center gap-4">
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
+          <a 
+            href={WHATSAPP_URL} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="w-full md:w-auto"
+            onClick={() => trackEvent("click_whatsapp", { button_location: "home_footer", cta_type: "primary" })}
+          >
             <Button size="lg" className="w-full md:w-auto rounded-full bg-primary px-10 text-primary-foreground hover:bg-primary/90">
               <MessageCircle className="mr-2 h-5 w-5" /> Falar pelo WhatsApp
             </Button>
           </a>
-          <a href={`mailto:${EMAIL_ADDRESS}`} className="w-full md:w-auto">
+          <a 
+            href={`mailto:${EMAIL_ADDRESS}`} 
+            className="w-full md:w-auto"
+            onClick={() => trackEvent("click_email", { button_location: "home_footer", cta_type: "secondary" })}
+          >
             <Button size="lg" variant="outline" className="w-full md:w-auto rounded-full px-10">
               <Mail className="mr-2 h-5 w-5" /> Enviar E-mail
             </Button>

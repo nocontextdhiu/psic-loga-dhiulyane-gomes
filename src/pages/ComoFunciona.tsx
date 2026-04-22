@@ -2,6 +2,7 @@ import { MapPin, MessageCircle, Globe } from "lucide-react";
 import Section from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/lib/constants";
+import { trackEvent } from "@/lib/analytics";
 import comoFuncionaConcept from "@/assets/como-funciona-concept.png";
 
 const steps = [
@@ -53,7 +54,12 @@ const ComoFunciona = () => (
           O primeiro passo é simples: me manda uma mensagem.
         </p>
         <div className="mt-10">
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+          <a 
+            href={WHATSAPP_URL} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            onClick={() => trackEvent("click_whatsapp", { button_location: "como_funciona_page", cta_type: "primary" })}
+          >
             <Button size="lg" className="rounded-full bg-primary px-10 text-primary-foreground hover:bg-primary/90">
               <MessageCircle className="mr-2 h-5 w-5" /> Falar pelo WhatsApp
             </Button>

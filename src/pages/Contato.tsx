@@ -2,11 +2,12 @@ import { MessageCircle, Instagram, Linkedin, GraduationCap, Mail, MapPin, Globe 
 import Section from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL, SOCIAL_LINKS, CRP, FULL_NAME, EMAIL_ADDRESS } from "@/lib/constants";
+import { trackEvent } from "@/lib/analytics";
 
 const Contato = () => {
   return (
     <>
-      <Section className="py-24 md:py-32">
+      <Section className="py-24 md:py-32" onReveal={() => trackEvent("view_contact_section")}>
         <div className="mx-auto max-w-4xl px-6">
           {/* Cabeçalho */}
           <div className="mb-16 text-center">
@@ -26,7 +27,13 @@ const Contato = () => {
                   A forma mais rápida e direta de conversar comigo e realizar o seu agendamento.
                 </p>
               </div>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full">
+              <a 
+                href={WHATSAPP_URL} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full"
+                onClick={() => trackEvent("click_whatsapp", { button_location: "contact_page", cta_type: "primary" })}
+              >
                 <Button size="lg" className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
                   <MessageCircle className="mr-2 h-5 w-5" /> Enviar mensagem
                 </Button>
@@ -41,7 +48,11 @@ const Contato = () => {
                   Prefere escrever um e-mail? Fique à vontade para me enviar suas dúvidas ou propostas por aqui.
                 </p>
               </div>
-              <a href={`mailto:${EMAIL_ADDRESS}`} className="w-full">
+              <a 
+                href={`mailto:${EMAIL_ADDRESS}`} 
+                className="w-full"
+                onClick={() => trackEvent("click_email", { button_location: "contact_page", cta_type: "secondary" })}
+              >
                 <Button size="lg" variant="outline" className="w-full rounded-full">
                   <Mail className="mr-2 h-5 w-5" /> Escrever um e-mail
                 </Button>
@@ -74,7 +85,13 @@ const Contato = () => {
           <div className="rounded-2xl bg-card p-10 text-center border border-border/50">
             <h2 className="font-serif text-xl font-semibold text-foreground mb-8">Me encontre também em</h2>
             <div className="flex flex-wrap justify-center gap-8 mb-10">
-              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-muted-foreground transition-all hover:text-primary hover:-translate-y-1">
+              <a 
+                href={SOCIAL_LINKS.instagram} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex flex-col items-center gap-2 text-muted-foreground transition-all hover:text-primary hover:-translate-y-1"
+                onClick={() => trackEvent("click_instagram", { button_location: "contact_page" })}
+              >
                 <Instagram className="h-6 w-6" />
                 <span className="text-xs font-medium uppercase tracking-wider">Instagram</span>
               </a>
