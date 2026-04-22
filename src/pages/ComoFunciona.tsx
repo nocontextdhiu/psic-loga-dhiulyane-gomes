@@ -6,7 +6,7 @@ import comoFuncionaConcept from "@/assets/como-funciona-concept.png";
 
 const steps = [
   { number: "01", title: "Entre em contato", description: "Envie uma mensagem pelo WhatsApp. Sem burocracia, sem formulários longos." },
-  { number: "02", title: "Conversa inicial", description: "Entendemos juntas o que você busca e como posso te acompanhar." },
+  { number: "02", title: "Conversa inicial", description: "Entendemos o que você busca e como posso te acompanhar." },
   { number: "03", title: "Agendamento", description: "Escolhemos o melhor formato — online ou presencial — e começamos." },
 ];
 
@@ -47,7 +47,7 @@ const ComoFunciona = () => (
     <Section className="bg-card py-16 md:py-32">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl">
-          Pronta para começar?
+          Vamos começar?
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
           O primeiro passo é simples: me manda uma mensagem.
