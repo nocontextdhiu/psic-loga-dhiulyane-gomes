@@ -84,7 +84,7 @@ const Contato = () => {
               </a>
               <a href={SOCIAL_LINKS.medium} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-muted-foreground transition-all hover:text-primary hover:-translate-y-1">
                 <div className="flex h-6 w-6 items-center justify-center">
-                  <span className="text-[1.6rem] font-bold font-serif leading-none mt-1">M</span>
+                  <span className="text-[1.6rem] font-medium font-serif leading-none mt-1">M</span>
                 </div>
                 <span className="text-xs font-medium uppercase tracking-wider">Medium</span>
               </a>
