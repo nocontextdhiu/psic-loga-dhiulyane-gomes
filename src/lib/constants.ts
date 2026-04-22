@@ -7,5 +7,7 @@ export const SOCIAL_LINKS = {
   lattes: "http://lattes.cnpq.br/0938310483660368",
 };
 
+export const EMAIL_ADDRESS = "dhiulyanegomes@gmail.com";
+
 export const FULL_NAME = "Dhiulyane Farias Gomes Fuentes";
 export const CRP = "CRP 07/41202";

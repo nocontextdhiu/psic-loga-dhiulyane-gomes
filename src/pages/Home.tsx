@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { MessageCircle, Heart, ClipboardCheck, Brain, Mic, ArrowRight, Globe, MapPin } from "lucide-react";
+import { MessageCircle, Heart, ClipboardCheck, Brain, Mic, ArrowRight, Globe, MapPin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Section from "@/components/ScrollReveal";
-import LeadModal from "@/components/LeadModal";
-import { WHATSAPP_URL, CRP, FULL_NAME } from "@/lib/constants";
+import { WHATSAPP_URL, CRP, FULL_NAME, EMAIL_ADDRESS } from "@/lib/constants";
 import heroConcept from "@/assets/hero-concept.png";
 
 const services = [
@@ -120,11 +119,11 @@ const Home = () => (
                 <MessageCircle className="mr-2 h-5 w-5" /> Agendar consulta
               </Button>
             </a>
-            <LeadModal>
+            <a href={`mailto:${EMAIL_ADDRESS}`}>
               <Button size="lg" variant="outline" className="rounded-full">
-                Prefiro que entrem em contato
+                <Mail className="mr-2 h-5 w-5" /> Enviar E-mail
               </Button>
-            </LeadModal>
+            </a>
             <span className="text-sm text-muted-foreground">{CRP}</span>
           </div>
         </div>
@@ -244,12 +243,12 @@ const Home = () => (
               <MessageCircle className="mr-2 h-5 w-5" /> Falar pelo WhatsApp
             </Button>
           </a>
-            <LeadModal>
-              <Button size="lg" variant="outline" className="w-full md:w-auto rounded-full px-10">
-                Prefiro que entrem em contato
-              </Button>
-            </LeadModal>
-          </div>
+          <a href={`mailto:${EMAIL_ADDRESS}`} className="w-full md:w-auto">
+            <Button size="lg" variant="outline" className="w-full md:w-auto rounded-full px-10">
+              <Mail className="mr-2 h-5 w-5" /> Enviar E-mail
+            </Button>
+          </a>
+        </div>
       </div>
     </Section>
   </>

@@ -1,9 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, ClipboardCheck, Brain, Mic, ArrowRight } from "lucide-react";
+import { Heart, ClipboardCheck, Brain, Mic, ArrowRight, Mail } from "lucide-react";
 import Section from "@/components/ScrollReveal";
-import LeadModal from "@/components/LeadModal";
 import { Button } from "@/components/ui/button";
-import { WHATSAPP_URL } from "@/lib/constants";
+import { WHATSAPP_URL, EMAIL_ADDRESS } from "@/lib/constants";
 import servicesConcept from "@/assets/services-concept.png";
 
 const services = [
@@ -85,11 +84,11 @@ const Servicos = () => (
               Falar pelo WhatsApp
             </Button>
           </a>
-          <LeadModal>
+          <a href={`mailto:${EMAIL_ADDRESS}`} className="w-full md:w-auto">
             <Button size="lg" variant="outline" className="w-full md:w-auto rounded-full px-10">
-              Deixar meus dados
+              <Mail className="mr-2 h-5 w-5" /> Enviar um E-mail
             </Button>
-          </LeadModal>
+          </a>
         </div>
       </div>
     </Section>
