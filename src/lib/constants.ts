@@ -1,5 +1,12 @@
-export const WHATSAPP_URL = "https://wa.me/5553991137734?text=Olá! Gostaria de saber mais sobre os seus serviços.";
+export const WHATSAPP_NUMBER = "5553991137734";
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Gostaria de saber mais sobre os seus serviços.")}`;
 
+export const getWhatsAppUrl = (serviceName?: string) => {
+  const message = serviceName
+    ? `Olá! Gostaria de saber mais sobre: ${serviceName}.`
+    : "Olá! Gostaria de saber mais sobre os seus serviços.";
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+};
 export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/psi.dhiu/",
   linkedin: "https://www.linkedin.com/in/dhiulyane-farias-gomes-fuentes-a2a3b520a/",

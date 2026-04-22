@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heart, ClipboardCheck, Brain, Mic, ArrowRight, Mail } from "lucide-react";
 import Section from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
-import { WHATSAPP_URL, EMAIL_ADDRESS } from "@/lib/constants";
+import { WHATSAPP_URL, EMAIL_ADDRESS, getWhatsAppUrl } from "@/lib/constants";
 import servicesConcept from "@/assets/services-concept.png";
 
 const services = [
@@ -60,7 +60,7 @@ const Servicos = () => (
                 <h2 className="mb-3 font-serif text-xl font-semibold text-foreground transition-colors group-hover:text-primary">{service.title}</h2>
                 <div className="mb-5 h-px w-10 bg-border transition-all duration-500 group-hover:w-full group-hover:bg-primary/20" />
                 <p className="mb-8 leading-relaxed text-muted-foreground">{service.description}</p>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:gap-3 hover:text-primary/80">
+                <a href={getWhatsAppUrl(service.title)} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary transition-all hover:gap-3 hover:text-primary/80">
                   Agendar <ArrowRight className="h-4 w-4" />
                 </a>
               </CardContent>
